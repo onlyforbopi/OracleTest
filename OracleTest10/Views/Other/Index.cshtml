@@ -1,0 +1,84 @@
+﻿@model IEnumerable<OracleTest10.Models.MAIN>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+
+<div class="code-cut" style="width:300px;">
+
+    @Html.Grid(Model).Named("ordersGrid").Columns(columns =>
+{
+    columns.Add(c => c.ID).Titled("ID").Sortable(true).Filterable(true);
+    columns.Add(c => c.RECPT_CITY).Titled("RECPT_CITY").Sortable(true).Filterable(true);
+    columns.Add(c => c.RECPT_ZIP_CODE).Titled("RECPT_ZIP_CODE").Sortable(true).Filterable(true);
+    columns.Add(c => c.POD).Titled("POD").Sortable(true).Filterable(true);
+    columns.Add(c => c.INVOICE_TYPE).Titled("INVOICE_TYPE").Sortable(true).Filterable(true);
+    columns.Add(c => c.ISSUE_DATE).Titled("ISSUE_DATE").SetWidth("30%").Sortable(true).Filterable(true);
+    columns.Add(c => c.END_DATE).Titled("END_DATE").Sortable(true).Filterable(true).SetWidth(220);
+    columns.Add(c => c.CNTR_ACCT).Titled("CNTR_ACCT").SetWidth("30%").Sortable(true).Filterable(true);
+    columns.Add(c => c.PARTNER).Titled("PARTNER").Sortable(true).Filterable(true);
+    columns.Add(c => c.MUNIC).Titled("MUNIC").Sortable(true).Filterable(true);
+    //columns.Add(c => c.UserType).Titled("UserType").SetWidth(10);
+    columns.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Edit", "Edit", new { id = o.ID }));
+    columns.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Del", "Del", new { id = o.ID }));
+    columns.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Info", "Snapshot", new { id = o.ID }));
+    columns.Add().Titled("Selected")
+   .Encoded(false)
+   .Sanitized(false)
+   .SetWidth(30)
+   .RenderValueAs(o => Html.CheckBox("ckbSelected_" + (o.ID), false));
+
+}).WithPaging(10).Sortable(true).Filterable(true).WithMultipleFilters()
+</div>  
+
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<script>
+    function show_alert() {
+        if (confirm("Do you really want to do this?"))
+            document.forms[0].submit();
+        else
+            return false;
+    }
+
+    $(function () {
+        var selected_ids = [];
+        pageGrids.ordersGrid.onRowSelect(function (e) {
+            if ($('#ckbSelected_' + e.row.ID).prop('checked')) {
+                var indexs = selected_ids.indexOf(e.row.ID);
+                if (indexs == -1) {
+                    selected_ids.push(e.row.ID);
+                }
+                //selected_ids.push(e.row.ID);
+            } else {
+                var index = selected_ids.indexOf(e.row.ID);
+                if(index !== -1)
+                    selected_ids.splice(index, 1);
+            }
+            console.log(selected_ids);
+        });
+    });
+
+</script>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

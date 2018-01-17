@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BSNS_AREA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="INVOICE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MAIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RECPT_STREET" Type="nvarchar2" MaxLength="50" />
+          <Property Name="RECPT_ZIP_CODE" Type="varchar2" MaxLength="8" />
+          <Property Name="RECPT_CITY" Type="nvarchar2" MaxLength="50" />
+          <Property Name="POD" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="INVOICE_TYPE" Type="varchar2" MaxLength="3" />
+          <Property Name="ISSUE_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+          <Property Name="CNTR_ACCT" Type="varchar2" MaxLength="20" />
+          <Property Name="PARTNER" Type="varchar2" MaxLength="20" />
+          <Property Name="MUNIC" Type="varchar2" MaxLength="8" />
+          <Property Name="OFFICE" Type="varchar2" MaxLength="8" />
+          <Property Name="DIADROMI" Type="varchar2" MaxLength="4" />
+          <Property Name="BK" Type="varchar2" MaxLength="4" />
+          <Property Name="SELIDA" Type="varchar2" MaxLength="10" />
+          <Property Name="ZIP_CODE_B" Type="varchar2" MaxLength="4" />
+          <Property Name="CNT_INVC_ZC" Type="number" Precision="38" Scale="0" />
+          <Property Name="JULIAN_DATE" Type="number" Precision="38" Scale="0" />
+          <Property Name="LINE_NBR_AMF" Type="number" Precision="38" Scale="0" />
+          <Property Name="FILLER1" Type="varchar2" MaxLength="10" />
+          <Property Name="POD2" Type="varchar2" MaxLength="20" />
+          <Property Name="DISCON_DATE" Type="varchar2" MaxLength="8" />
+          <Property Name="CHK_DIG1" Type="char" MaxLength="1" />
+          <Property Name="AMNT" Type="number" Precision="15" Scale="2" />
+          <Property Name="CHK_DIG2" Type="char" MaxLength="1" />
+          <Property Name="GREG_DATE" Type="date" />
+          <Property Name="UNDELIV_TYPE" Type="varchar2" MaxLength="4" />
+          <Property Name="UNDELIV_CAUSE" Type="varchar2" MaxLength="4" />
+          <Property Name="PACK_NBR" Type="number" Precision="38" Scale="0" />
+          <Property Name="PACK_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="DELIV_STREET" Type="nvarchar2" MaxLength="50" />
+          <Property Name="DELIV_ZIP_CODE" Type="varchar2" MaxLength="8" />
+          <Property Name="DELIV_CITY" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MUNIC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OFFICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UNDEL_CAUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="4" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNDEL_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="4" Nullable="false" />
+          <Property Name="DESCR" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="DESCR" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="AM" Type="varchar2" MaxLength="12" />
+          <Property Name="FIRST_NAME" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="LAST_NAME" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="FATHER_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="UNIT" Type="nvarchar2" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar2" MaxLength="20" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZIP_CODE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <Association Name="MAIN_DELIV_ZIP_CODE_FK">
+          <End Role="ZIP_CODE" Type="Self.ZIP_CODE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZIP_CODE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="DELIV_ZIP_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_INV_TYPE_FK">
+          <End Role="INVOICE_TYPE" Type="Self.INVOICE_TYPE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INVOICE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="INVOICE_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_MUNIC_FK">
+          <End Role="MUNIC" Type="Self.MUNIC" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNIC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="MUNIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_OFFICE_FK">
+          <End Role="OFFICE" Type="Self.OFFICE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFFICE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="OFFICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_RECPT_ZIP_CODE_FK">
+          <End Role="ZIP_CODE" Type="Self.ZIP_CODE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZIP_CODE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="RECPT_ZIP_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_UNDEL_CAUSE_FK">
+          <End Role="UNDEL_CAUSE" Type="Self.UNDEL_CAUSE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNDEL_CAUSE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="UNDELIV_CAUSE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_UNDEL_TYPE_FK">
+          <End Role="UNDEL_TYPE" Type="Self.UNDEL_TYPE" Multiplicity="0..1" />
+          <End Role="MAIN" Type="Self.MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNDEL_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="UNDELIV_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USR_TYPE_FK">
+          <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+          <End Role="USR" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USR">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        
+        
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="BSNS_AREA" EntityType="Self.BSNS_AREA" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="INVOICE_TYPE" EntityType="Self.INVOICE_TYPE" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="MAIN" EntityType="Self.MAIN" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="MUNIC" EntityType="Self.MUNIC" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="OFFICE" EntityType="Self.OFFICE" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="UNDEL_CAUSE" EntityType="Self.UNDEL_CAUSE" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="UNDEL_TYPE" EntityType="Self.UNDEL_TYPE" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="USR" EntityType="Self.USR" Schema="INVOICE" store:Type="Tables" />
+          <EntitySet Name="ZIP_CODE" EntityType="Self.ZIP_CODE" Schema="INVOICE" store:Type="Tables" />
+          <AssociationSet Name="MAIN_DELIV_ZIP_CODE_FK" Association="Self.MAIN_DELIV_ZIP_CODE_FK">
+            <End Role="ZIP_CODE" EntitySet="ZIP_CODE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_INV_TYPE_FK" Association="Self.MAIN_INV_TYPE_FK">
+            <End Role="INVOICE_TYPE" EntitySet="INVOICE_TYPE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_MUNIC_FK" Association="Self.MAIN_MUNIC_FK">
+            <End Role="MUNIC" EntitySet="MUNIC" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_OFFICE_FK" Association="Self.MAIN_OFFICE_FK">
+            <End Role="OFFICE" EntitySet="OFFICE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_RECPT_ZIP_CODE_FK" Association="Self.MAIN_RECPT_ZIP_CODE_FK">
+            <End Role="ZIP_CODE" EntitySet="ZIP_CODE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_UNDEL_CAUSE_FK" Association="Self.MAIN_UNDEL_CAUSE_FK">
+            <End Role="UNDEL_CAUSE" EntitySet="UNDEL_CAUSE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_UNDEL_TYPE_FK" Association="Self.MAIN_UNDEL_TYPE_FK">
+            <End Role="UNDEL_TYPE" EntitySet="UNDEL_TYPE" />
+            <End Role="MAIN" EntitySet="MAIN" />
+          </AssociationSet>
+          <AssociationSet Name="USR_TYPE_FK" Association="Self.USR_TYPE_FK">
+            <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+            <End Role="USR" EntitySet="USR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BSNS_AREA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OFFICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_OFFICE_FK" FromRole="OFFICE" ToRole="MAIN" />
+        </EntityType>
+        <EntityType Name="USER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USRs" Relationship="Self.USR_TYPE_FK01" FromRole="USER_TYPE" ToRole="USR" />
+        </EntityType>
+        <EntityType Name="USR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AM" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FATHER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USER_TYPE" Relationship="Self.USR_TYPE_FK01" FromRole="USR" ToRole="USER_TYPE" />
+        </EntityType>
+        <Association Name="USR_TYPE_FK01">
+          <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+          <End Role="USR" Type="Self.USR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USR">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BSNS_AREA" EntityType="Self.BSNS_AREA" />
+          <EntitySet Name="OFFICEs" EntityType="Self.OFFICE" />
+          <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" />
+          <EntitySet Name="USRs" EntityType="Self.USR" />
+          <AssociationSet Name="USR_TYPE_FK01" Association="Self.USR_TYPE_FK01">
+            <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+            <End Role="USR" EntitySet="USRs" />
+          </AssociationSet>
+          <EntitySet Name="INVOICE_TYPE" EntityType="Model.INVOICE_TYPE" />
+          <EntitySet Name="MUNICs" EntityType="Model.MUNIC" />
+          <EntitySet Name="UNDEL_CAUSE" EntityType="Model.UNDEL_CAUSE" />
+          <EntitySet Name="UNDEL_TYPE" EntityType="Model.UNDEL_TYPE" />
+          <EntitySet Name="ZIP_CODE" EntityType="Model.ZIP_CODE" />
+          <EntitySet Name="MAINs" EntityType="Model.MAIN" />
+          <AssociationSet Name="MAIN_INV_TYPE_FK" Association="Model.MAIN_INV_TYPE_FK">
+            <End Role="INVOICE_TYPE" EntitySet="INVOICE_TYPE" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_DELIV_ZIP_CODE_FK" Association="Model.MAIN_DELIV_ZIP_CODE_FK">
+            <End Role="ZIP_CODE" EntitySet="ZIP_CODE" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_MUNIC_FK" Association="Model.MAIN_MUNIC_FK">
+            <End Role="MUNIC" EntitySet="MUNICs" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_OFFICE_FK" Association="Model.MAIN_OFFICE_FK">
+            <End Role="OFFICE" EntitySet="OFFICEs" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_RECPT_ZIP_CODE_FK" Association="Model.MAIN_RECPT_ZIP_CODE_FK">
+            <End Role="ZIP_CODE" EntitySet="ZIP_CODE" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_UNDEL_CAUSE_FK" Association="Model.MAIN_UNDEL_CAUSE_FK">
+            <End Role="UNDEL_CAUSE" EntitySet="UNDEL_CAUSE" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_UNDEL_TYPE_FK" Association="Model.MAIN_UNDEL_TYPE_FK">
+            <End Role="UNDEL_TYPE" EntitySet="UNDEL_TYPE" />
+            <End Role="MAIN" EntitySet="MAINs" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="INVOICE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_INV_TYPE_FK" FromRole="INVOICE_TYPE" ToRole="MAIN" />
+        </EntityType>
+        <EntityType Name="MUNIC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_MUNIC_FK" FromRole="MUNIC" ToRole="MAIN" />
+        </EntityType>
+        <EntityType Name="UNDEL_CAUSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_UNDEL_CAUSE_FK" FromRole="UNDEL_CAUSE" ToRole="MAIN" />
+        </EntityType>
+        <EntityType Name="UNDEL_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_UNDEL_TYPE_FK" FromRole="UNDEL_TYPE" ToRole="MAIN" />
+        </EntityType>
+        <EntityType Name="ZIP_CODE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MAINs" Relationship="Model.MAIN_DELIV_ZIP_CODE_FK" FromRole="ZIP_CODE" ToRole="MAIN" />
+          <NavigationProperty Name="MAINs1" Relationship="Model.MAIN_RECPT_ZIP_CODE_FK" FromRole="ZIP_CODE" ToRole="MAIN" />
+          </EntityType>
+        <EntityType Name="MAIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="RECPT_STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RECPT_ZIP_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="RECPT_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="POD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_TYPE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ISSUE_DATE" Type="DateTime" />
+          <Property Name="END_DATE" Type="DateTime" />
+          <Property Name="CNTR_ACCT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARTNER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MUNIC" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DIADROMI" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="BK" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SELIDA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP_CODE_B" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CNT_INVC_ZC" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="JULIAN_DATE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LINE_NBR_AMF" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FILLER1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="POD2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DISCON_DATE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CHK_DIG1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AMNT" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="CHK_DIG2" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="GREG_DATE" Type="DateTime" />
+          <Property Name="UNDELIV_TYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="UNDELIV_CAUSE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PACK_NBR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PACK_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DELIV_STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DELIV_ZIP_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DELIV_CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="INVOICE_TYPE1" Relationship="Model.MAIN_INV_TYPE_FK" FromRole="MAIN" ToRole="INVOICE_TYPE" />
+          <NavigationProperty Name="ZIP_CODE" Relationship="Model.MAIN_DELIV_ZIP_CODE_FK" FromRole="MAIN" ToRole="ZIP_CODE" />
+          <NavigationProperty Name="MUNIC1" Relationship="Model.MAIN_MUNIC_FK" FromRole="MAIN" ToRole="MUNIC" />
+          <NavigationProperty Name="OFFICE1" Relationship="Model.MAIN_OFFICE_FK" FromRole="MAIN" ToRole="OFFICE" />
+          <NavigationProperty Name="ZIP_CODE1" Relationship="Model.MAIN_RECPT_ZIP_CODE_FK" FromRole="MAIN" ToRole="ZIP_CODE" />
+          <NavigationProperty Name="UNDEL_CAUSE" Relationship="Model.MAIN_UNDEL_CAUSE_FK" FromRole="MAIN" ToRole="UNDEL_CAUSE" />
+          <NavigationProperty Name="UNDEL_TYPE" Relationship="Model.MAIN_UNDEL_TYPE_FK" FromRole="MAIN" ToRole="UNDEL_TYPE" />
+        </EntityType>
+        <Association Name="MAIN_INV_TYPE_FK">
+          <End Type="Model.INVOICE_TYPE" Role="INVOICE_TYPE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INVOICE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="INVOICE_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_DELIV_ZIP_CODE_FK">
+          <End Type="Model.ZIP_CODE" Role="ZIP_CODE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZIP_CODE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="DELIV_ZIP_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_MUNIC_FK">
+          <End Type="Model.MUNIC" Role="MUNIC" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNIC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="MUNIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_OFFICE_FK">
+          <End Type="Model.OFFICE" Role="OFFICE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFFICE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="OFFICE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_RECPT_ZIP_CODE_FK">
+          <End Type="Model.ZIP_CODE" Role="ZIP_CODE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZIP_CODE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="RECPT_ZIP_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_UNDEL_CAUSE_FK">
+          <End Type="Model.UNDEL_CAUSE" Role="UNDEL_CAUSE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNDEL_CAUSE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="UNDELIV_CAUSE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_UNDEL_TYPE_FK">
+          <End Type="Model.UNDEL_TYPE" Role="UNDEL_TYPE" Multiplicity="0..1" />
+          <End Type="Model.MAIN" Role="MAIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNDEL_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MAIN">
+              <PropertyRef Name="UNDELIV_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="OREntities">
+          <EntitySetMapping Name="BSNS_AREA">
+            <EntityTypeMapping TypeName="Model.BSNS_AREA">
+              <MappingFragment StoreEntitySet="BSNS_AREA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OFFICEs">
+            <EntityTypeMapping TypeName="Model.OFFICE">
+              <MappingFragment StoreEntitySet="OFFICE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_TYPE">
+            <EntityTypeMapping TypeName="Model.USER_TYPE">
+              <MappingFragment StoreEntitySet="USER_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USRs">
+            <EntityTypeMapping TypeName="Model.USR">
+              <MappingFragment StoreEntitySet="USR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="AM" ColumnName="AM" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INVOICE_TYPE">
+            <EntityTypeMapping TypeName="Model.INVOICE_TYPE">
+              <MappingFragment StoreEntitySet="INVOICE_TYPE">
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUNICs">
+            <EntityTypeMapping TypeName="Model.MUNIC">
+              <MappingFragment StoreEntitySet="MUNIC">
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNDEL_CAUSE">
+            <EntityTypeMapping TypeName="Model.UNDEL_CAUSE">
+              <MappingFragment StoreEntitySet="UNDEL_CAUSE">
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNDEL_TYPE">
+            <EntityTypeMapping TypeName="Model.UNDEL_TYPE">
+              <MappingFragment StoreEntitySet="UNDEL_TYPE">
+                <ScalarProperty Name="DESCR" ColumnName="DESCR" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZIP_CODE">
+            <EntityTypeMapping TypeName="Model.ZIP_CODE">
+              <MappingFragment StoreEntitySet="ZIP_CODE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAINs">
+            <EntityTypeMapping TypeName="Model.MAIN">
+              <MappingFragment StoreEntitySet="MAIN">
+                <ScalarProperty Name="DELIV_CITY" ColumnName="DELIV_CITY" />
+                <ScalarProperty Name="DELIV_ZIP_CODE" ColumnName="DELIV_ZIP_CODE" />
+                <ScalarProperty Name="DELIV_STREET" ColumnName="DELIV_STREET" />
+                <ScalarProperty Name="PACK_NAME" ColumnName="PACK_NAME" />
+                <ScalarProperty Name="PACK_NBR" ColumnName="PACK_NBR" />
+                <ScalarProperty Name="UNDELIV_CAUSE" ColumnName="UNDELIV_CAUSE" />
+                <ScalarProperty Name="UNDELIV_TYPE" ColumnName="UNDELIV_TYPE" />
+                <ScalarProperty Name="GREG_DATE" ColumnName="GREG_DATE" />
+                <ScalarProperty Name="CHK_DIG2" ColumnName="CHK_DIG2" />
+                <ScalarProperty Name="AMNT" ColumnName="AMNT" />
+                <ScalarProperty Name="CHK_DIG1" ColumnName="CHK_DIG1" />
+                <ScalarProperty Name="DISCON_DATE" ColumnName="DISCON_DATE" />
+                <ScalarProperty Name="POD2" ColumnName="POD2" />
+                <ScalarProperty Name="FILLER1" ColumnName="FILLER1" />
+                <ScalarProperty Name="LINE_NBR_AMF" ColumnName="LINE_NBR_AMF" />
+                <ScalarProperty Name="JULIAN_DATE" ColumnName="JULIAN_DATE" />
+                <ScalarProperty Name="CNT_INVC_ZC" ColumnName="CNT_INVC_ZC" />
+                <ScalarProperty Name="ZIP_CODE_B" ColumnName="ZIP_CODE_B" />
+                <ScalarProperty Name="SELIDA" ColumnName="SELIDA" />
+                <ScalarProperty Name="BK" ColumnName="BK" />
+                <ScalarProperty Name="DIADROMI" ColumnName="DIADROMI" />
+                <ScalarProperty Name="OFFICE" ColumnName="OFFICE" />
+                <ScalarProperty Name="MUNIC" ColumnName="MUNIC" />
+                <ScalarProperty Name="PARTNER" ColumnName="PARTNER" />
+                <ScalarProperty Name="CNTR_ACCT" ColumnName="CNTR_ACCT" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="ISSUE_DATE" ColumnName="ISSUE_DATE" />
+                <ScalarProperty Name="INVOICE_TYPE" ColumnName="INVOICE_TYPE" />
+                <ScalarProperty Name="POD" ColumnName="POD" />
+                <ScalarProperty Name="RECPT_CITY" ColumnName="RECPT_CITY" />
+                <ScalarProperty Name="RECPT_ZIP_CODE" ColumnName="RECPT_ZIP_CODE" />
+                <ScalarProperty Name="RECPT_STREET" ColumnName="RECPT_STREET" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

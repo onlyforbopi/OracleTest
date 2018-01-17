@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a3bfba81c98b41ed9f330c40da13d409" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="Model.BSNS_AREA" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OFFICE" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USER_TYPE" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USR" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Model.USR_TYPE_FK01" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.INVOICE_TYPE" Width="1.5" PointX="1.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.MUNIC" Width="1.5" PointX="5.75" PointY="17.375" />
+        <EntityTypeShape EntityType="Model.UNDEL_CAUSE" Width="1.5" PointX="5.75" PointY="15" />
+        <EntityTypeShape EntityType="Model.UNDEL_TYPE" Width="1.5" PointX="5.75" PointY="12.625" />
+        <EntityTypeShape EntityType="Model.ZIP_CODE" Width="1.5" PointX="1.75" PointY="10" />
+        <EntityTypeShape EntityType="Model.MAIN" Width="1.5" PointX="8" PointY="8" />
+        <AssociationConnector Association="Model.MAIN_INV_TYPE_FK" />
+        <AssociationConnector Association="Model.MAIN_DELIV_ZIP_CODE_FK" />
+        <AssociationConnector Association="Model.MAIN_MUNIC_FK" />
+        <AssociationConnector Association="Model.MAIN_OFFICE_FK" />
+        <AssociationConnector Association="Model.MAIN_RECPT_ZIP_CODE_FK" />
+        <AssociationConnector Association="Model.MAIN_UNDEL_CAUSE_FK" />
+        <AssociationConnector Association="Model.MAIN_UNDEL_TYPE_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

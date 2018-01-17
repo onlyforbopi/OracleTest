@@ -1,0 +1,128 @@
+﻿@model OracleTest10.Models.USR
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        #login-div-adv {
+            position: absolute;
+            left: 10%;
+            top: 40%;
+            border: 5px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="=" text-decoration:underline>App Name</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ID)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ID)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.ID)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.PASSWORD)</td>
+                    <td>@Html.EditorFor(model => model.PASSWORD)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.ValidationMessageFor(model => model.PASSWORD)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error">
+                            @Html.DisplayFor(model => model.LoginErrorMessage)
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <div id="login-div-adv">
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="=" text-decoration:underline>App Name</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ID)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ID)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.PASSWORD)</td>
+                    <td>@Html.EditorFor(model => model.PASSWORD)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+
+
+
+
+</html>
